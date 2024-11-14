@@ -1,17 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
-using UnityEngine.Playables;
 
 public class anim_Control : MonoBehaviour
 {
-    public Animator animator;         // 애니메이터 컴포넌트
-    
+    private Animator animator;  // Animator 컴포넌트
+
     private bool isAnimationPlaying = false;  // 애니메이션이 재생 중인지 여부
-
-
-
+    
 
     void Start()
     {
