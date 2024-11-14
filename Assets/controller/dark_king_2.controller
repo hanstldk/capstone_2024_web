@@ -11,7 +11,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -1257306707785973312}
-    m_Position: {x: 380.74625, y: 205.8209, z: 0}
+    m_Position: {x: 410, y: 160, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -56,19 +56,7 @@ AnimatorController:
   m_PrefabAsset: {fileID: 0}
   m_Name: dark_king_2
   serializedVersion: 5
-  m_AnimatorParameters:
-  - m_Name: New Float
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: New Bool
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+  m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
