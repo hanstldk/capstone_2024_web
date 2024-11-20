@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46c77786cda370499829533a14a56b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aniname: 
   fadeDuration: 2
 --- !u!1 &113522829 stripped
 GameObject:
@@ -199,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46c77786cda370499829533a14a56b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aniname: 
   fadeDuration: 2
 --- !u!1 &121167028
 GameObject:
@@ -209,31 +211,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 121167030}
-  - component: {fileID: 121167029}
-  m_Layer: 0
-  m_Name: post_processing
+  - component: {fileID: 121167031}
+  m_Layer: 3
+  m_Name: Post_Processing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &121167029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121167028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 707231ae2ba8f3a448cf50c4889c6324, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!4 &121167030
 Transform:
   m_ObjectHideFlags: 0
@@ -249,6 +234,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &121167031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121167028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 24c2570fd819ec04ca426f7e32a46463, type: 2}
 --- !u!1001 &376937601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -441,9 +443,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.0000069647913
       objectReference: {fileID: 0}
+    - target: {fileID: 72734918379966255, guid: 33b549061495be44bb5eedf2870c2f8b, type: 3}
+      propertyPath: m_Antialiasing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72734918379966255, guid: 33b549061495be44bb5eedf2870c2f8b, type: 3}
+      propertyPath: m_RendererIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 72734918379966255, guid: 33b549061495be44bb5eedf2870c2f8b, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72734918379966255, guid: 33b549061495be44bb5eedf2870c2f8b, type: 3}
+      propertyPath: m_VolumeLayerMask.m_Bits
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 33b549061495be44bb5eedf2870c2f8b, type: 3}
       propertyPath: m_Name
       value: camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 33b549061495be44bb5eedf2870c2f8b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 33b549061495be44bb5eedf2870c2f8b, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -455,7 +481,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 33b549061495be44bb5eedf2870c2f8b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1046872524}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 33b549061495be44bb5eedf2870c2f8b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1046872527}
   m_SourcePrefab: {fileID: 100100000, guid: 33b549061495be44bb5eedf2870c2f8b, type: 3}
+--- !u!4 &489392407 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33b549061495be44bb5eedf2870c2f8b, type: 3}
+  m_PrefabInstance: {fileID: 489392406}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &543984369 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 01e773214a3c57145acd7e0c3b6b53e0, type: 3}
@@ -494,6 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46c77786cda370499829533a14a56b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aniname: 
   fadeDuration: 2
 --- !u!1 &555128716 stripped
 GameObject:
@@ -533,6 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46c77786cda370499829533a14a56b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aniname: 
   fadeDuration: 2
 --- !u!4 &636268791 stripped
 Transform:
@@ -602,6 +638,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 07bb8837daf609940b3359297d4e19fb, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 07bb8837daf609940b3359297d4e19fb, type: 3}
+      propertyPath: m_TagString
+      value: second
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -757,6 +797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46c77786cda370499829533a14a56b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aniname: 
   fadeDuration: 2
 --- !u!4 &903862909 stripped
 Transform:
@@ -801,6 +842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46c77786cda370499829533a14a56b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aniname: 
   fadeDuration: 2
 --- !u!1001 &998976734
 PrefabInstance:
@@ -903,7 +945,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46c77786cda370499829533a14a56b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aniname: 
   fadeDuration: 2
+--- !u!114 &1046872527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046872520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 489392407}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 1
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &1213747436 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 21385fd35a0009046b9b54e9dd98f5a1, type: 3}
@@ -942,6 +1045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46c77786cda370499829533a14a56b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aniname: 
   fadeDuration: 2
 --- !u!4 &1230933155 stripped
 Transform:
@@ -1060,6 +1164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46c77786cda370499829533a14a56b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aniname: 
   fadeDuration: 2
 --- !u!1001 &1400808142
 PrefabInstance:
@@ -1213,6 +1318,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c2e9a83032771fd4f85fa1f2321bfbb5, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c2e9a83032771fd4f85fa1f2321bfbb5, type: 3}
+      propertyPath: m_TagString
+      value: second
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1400,6 +1509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46c77786cda370499829533a14a56b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aniname: 
   fadeDuration: 2
 --- !u!1001 &1602705745
 PrefabInstance:
@@ -1464,6 +1574,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 01e773214a3c57145acd7e0c3b6b53e0, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01e773214a3c57145acd7e0c3b6b53e0, type: 3}
+      propertyPath: m_TagString
+      value: second
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1543,6 +1657,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 21385fd35a0009046b9b54e9dd98f5a1, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 21385fd35a0009046b9b54e9dd98f5a1, type: 3}
+      propertyPath: m_TagString
+      value: board
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1749,6 +1867,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5c40e5704601a714db58672872522cec, type: 3}
+      propertyPath: m_TagString
+      value: second
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1798,6 +1920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46c77786cda370499829533a14a56b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aniname: 
   fadeDuration: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

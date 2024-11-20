@@ -4,33 +4,57 @@ using UnityEngine;
 
 public class anim_Control : MonoBehaviour
 {
-    private Animator animator;  // Animator 컴포넌트
-
-    private bool isAnimationPlaying = false;  // 애니메이션이 재생 중인지 여부
-    
+    private Animator animator;
+    private bool isPlaying = false;
+    private float animationTime = 0f;
+    private bool isReversing = false;
+    public string aniname;
 
     void Start()
     {
-        // Animator 컴포넌트를 가져옵니다.
         animator = GetComponent<Animator>();
-
-        // 애니메이션을 처음에는 멈춰 놓습니다.
-        animator.speed = 0;
+        animator.speed = 0f; // 애니메이션을 시작할 때 멈춘 상태로 설정
     }
 
     void Update()
     {
-        // 마우스 휠 스크롤 다운을 감지
-        if (Input.GetAxis("Mouse ScrollWheel") < 0) // 스크롤 다운
+        // 스크롤 다운 (정방향 재생)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
-            if (!isAnimationPlaying)
+            if (!isPlaying || isReversing) // 정방향으로 재생 시작
             {
-                // 애니메이션을 시작합니다.
-                animator.speed = 1;  // 애니메이션 속도를 1로 설정하여 재생
-                isAnimationPlaying = true;
-                
+                animator.speed = 1f; // 애니메이션 속도를 정방향으로 설정
+                animator.Play(aniname, 0, animationTime); // 저장된 시간부터 애니메이션 시작
+                isPlaying = true;
+                isReversing = false; // 역재생이 아닌 정방향 재생
             }
-  
+        }
+
+        // 스크롤 업 (역방향 재생)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            if (isPlaying && !isReversing) // 역방향으로 재생 시작
+            {
+                // 현재 애니메이션 진행 상태에서 normalizedTime을 가져옴
+                animationTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+                isReversing = true;
+            }
+        }
+
+        // 역재생을 위한 시간 제어
+        if (isReversing)
+        {
+            // normalizedTime을 감소시켜 역재생을 구현
+            animationTime -= Time.deltaTime / animator.GetCurrentAnimatorStateInfo(0).length;
+            if (animationTime <= 0f)
+            {
+                animator.speed = 0f; // 애니메이션이 끝날 때 멈춤
+                isPlaying = false; // 역재생이 끝나면 멈춤
+            }
+            else
+            {
+                animator.Play(aniname, 0, animationTime); // 역재생
+            }
         }
     }
 
@@ -38,37 +62,6 @@ public class anim_Control : MonoBehaviour
     {
         MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
         meshRenderer.enabled = true;
-    }
-
-    public void StartScrollAnimation()
-    {
-        // 코루틴 시작
-        animator.enabled = false;
-        StartCoroutine(WaitForScrollInput());
-    }
-
-    // 스크롤 다운 입력을 기다리는 코루틴 함수
-    private IEnumerator WaitForScrollInput()
-    {
-        // 스크롤 다운이 입력될 때까지 기다림
-        while (Input.GetAxis("Mouse ScrollWheel") >= 0)
-        {
-            yield return null;  // 매 프레임 대기
-        }
-
-        // 스크롤 다운이 감지되면 애니메이션 재생
-        animator.enabled = true;
-        isAnimationPlaying = true;
-
-        // 애니메이션이 끝난 후 멈추도록 예약
-        float animationDuration = animator.GetCurrentAnimatorStateInfo(0).length;
-        Invoke("StopAnimation", animationDuration);
-    }
-
-    private void StopAnimation()
-    {
-        animator.enabled = false;  // 애니메이션 멈춤
-        isAnimationPlaying = false;  // 상태 초기화
     }
 
 
