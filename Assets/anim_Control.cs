@@ -19,7 +19,7 @@ public class anim_Control : MonoBehaviour
     void Update()
     {
         // 스크롤 다운 (정방향 재생)
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             if (!isPlaying || isReversing) // 정방향으로 재생 시작
             {
@@ -31,7 +31,7 @@ public class anim_Control : MonoBehaviour
         }
 
         // 스크롤 업 (역방향 재생)
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
             if (isPlaying && !isReversing) // 역방향으로 재생 시작
             {
