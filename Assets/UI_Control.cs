@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    string cyk_url = "https://www.instagram.com/ykpf2018_23";
+    string hsm_url = "https://www.youtube.com/@solmi19";
+    string ksh_url = "https://www.youtube.com/@%EB%AA%BD%EC%8B%A4-m6h";
+    string ksj_url = "https://savory-fish-bb8.notion.site/f4653d55d56c48e4a2e7b2c2bc969f70?pvs=4";
+
+
     public GameObject before_ani;
     public GameObject after_ani;
     public GameObject about_us;
@@ -11,6 +17,13 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject hsm_pro;
     public GameObject ksh_pro;
     public GameObject ksj_pro;
+
+    public GameObject cyk_port;
+    public GameObject hsm_port;
+    public GameObject ksh_port;
+
+
+
 
     public RectTransform targetUI;
     // Start is called before the first frame update
@@ -86,6 +99,40 @@ public class NewBehaviourScript : MonoBehaviour
         about_us.GetComponent<Animator>().SetBool("left", false);
     }
 
+    public void Go_Left_cyk()
+    {
+        cyk_port.GetComponent<Animator>().SetBool("left", true);
+        cyk_port.GetComponent<Animator>().SetBool("right", false);
+    }
+
+    public void Go_Right_cyk()
+    {
+        cyk_port.GetComponent<Animator>().SetBool("right", true);
+        cyk_port.GetComponent<Animator>().SetBool("left", false);
+    }
+    public void Go_Left_hsm()
+    {
+        hsm_port.GetComponent<Animator>().SetBool("left", true);
+        hsm_port.GetComponent<Animator>().SetBool("right", false);
+    }
+
+    public void Go_Right_hsm()
+    {
+        hsm_port.GetComponent<Animator>().SetBool("right", true);
+        hsm_port.GetComponent<Animator>().SetBool("left", false);
+    }
+    public void Go_Left_ksh()
+    {
+        ksh_port.GetComponent<Animator>().SetBool("left", true);
+        ksh_port.GetComponent<Animator>().SetBool("right", false);
+    }
+
+    public void Go_Right_ksh()
+    {
+        ksh_port.GetComponent<Animator>().SetBool("right", true);
+        ksh_port.GetComponent<Animator>().SetBool("left", false);
+    }
+
     public void Go_Up_proflie()
     {
         cyk_pro.GetComponent<Animator>().SetBool("up", true);
@@ -126,6 +173,26 @@ public class NewBehaviourScript : MonoBehaviour
     {
         ksj_pro.GetComponent<Animator>().SetBool("down", true);
         ksj_pro.GetComponent<Animator>().SetBool("up", false);
+    }
+
+    public void opne_cyk() 
+    {
+        Application.OpenURL(cyk_url);
+    }
+
+    public void opne_hsm()
+    {
+        Application.OpenURL(hsm_url);
+    }
+
+    public void opne_ksh()
+    {
+        Application.OpenURL(ksh_url);
+    }
+
+    public void opne_ksj()
+    {
+        Application.OpenURL(ksj_url);
     }
 
 
