@@ -9,11 +9,24 @@ public class anim_Control : MonoBehaviour
     private float animationTime = 0f;
     private bool isReversing = false;
     public string aniname;
+    MeshRenderer meshRenderer;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        meshRenderer = GetComponent<MeshRenderer>();
+        ParticleSystem particleSystem = GetComponent<ParticleSystem>();
+        if (particleSystem != null)
+        {
+            particleSystem.Stop();
+        }
         animator.speed = 0f; // 애니메이션을 시작할 때 멈춘 상태로 설정
+    }
+
+    void cd_ef_start()
+    {
+        ParticleSystem particleSystem = GetComponent<ParticleSystem>();
+        particleSystem.Play();
     }
 
     void Update()
@@ -27,6 +40,7 @@ public class anim_Control : MonoBehaviour
                 animator.Play(aniname, 0, animationTime); // 저장된 시간부터 애니메이션 시작
                 isPlaying = true;
                 isReversing = false; // 역재생이 아닌 정방향 재생
+                
             }
         }
 
@@ -54,9 +68,44 @@ public class anim_Control : MonoBehaviour
             else
             {
                 animator.Play(aniname, 0, animationTime); // 역재생
+                CheckForReverseEvent(animationTime);
             }
         }
     }
+    private void CheckForReverseEvent(float currentTime)
+    {
+        ParticleSystem particleSystem = GetComponent<ParticleSystem>();
+        if (currentTime < 0.25f && particleSystem != null)
+        {
+            particleSystem.Stop();
+        }
+        if (meshRenderer == null)
+        {
+            Debug.LogWarning("이 오브젝트에는 MeshRenderer가 없습니다.");
+            return; // 실행 종료
+        }
+        // 애니메이션의 특정 시점에 맞춰 이벤트 함수 호출
+        if (currentTime <= 0.34f && currentTime > 0.33f)
+        {
+            
+            if (meshRenderer != null && gameObject.CompareTag("second"))
+            {
+                meshRenderer.enabled = false;
+                Debug.Log("1111");
+            }
+        }
+        Material[] materials = meshRenderer.materials;
+        if (currentTime <= 0.26f && currentTime > 0.25f&& materials.Length > 1 && materials[1] != null)
+        {
+            StartFadeIn();
+        }
+        
+    }
+
+  
+    
+
+
 
     public void Activate() 
     {
@@ -71,6 +120,48 @@ public class anim_Control : MonoBehaviour
     public void StartFadeOut()
     {
         StartCoroutine(FadeOutSpecificMaterial());
+    }
+
+    public void StartFadeIn()
+    {
+        StartCoroutine(FadeInSpecificMaterial());
+    }
+
+    private IEnumerator FadeInSpecificMaterial()
+    {
+        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+        Material[] materials = meshRenderer.materials;
+
+        if (materials.Length < 3)
+        {
+            Debug.LogWarning("이 오브젝트는 3개의 머티리얼을 가지고 있지 않습니다.");
+            yield break;
+        }
+
+        Material targetMaterial = materials[1];
+        
+        targetMaterial.SetFloat("_Mode", 2); // 2 = Fade
+        targetMaterial.SetOverrideTag("RenderType", "Transparent");
+        targetMaterial.EnableKeyword("_ALPHABLEND_ON");
+        targetMaterial.renderQueue = 3000;
+
+        float elapsedTime = 0f;
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeDuration);
+
+            Color color = targetMaterial.color;
+            color.a = alpha;
+            targetMaterial.color = color;
+
+            yield return null;
+        }
+
+        // 최종적으로 완전히 불투명하게 설정
+        Color finalColor = targetMaterial.color;
+        finalColor.a = 1f;
+        targetMaterial.color = finalColor;
     }
 
     private IEnumerator FadeOutSpecificMaterial()

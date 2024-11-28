@@ -6,6 +6,7 @@ TagManager:
   tags:
   - board
   - second
+  - cd_ef
   layers:
   - Default
   - TransparentFX
