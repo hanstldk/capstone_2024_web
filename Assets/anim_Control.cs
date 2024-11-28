@@ -10,6 +10,7 @@ public class anim_Control : MonoBehaviour
     private bool isReversing = false;
     public string aniname;
     MeshRenderer meshRenderer;
+    public MeshCollider[] colliders;
 
     void Start()
     {
@@ -21,6 +22,18 @@ public class anim_Control : MonoBehaviour
             particleSystem.Stop();
         }
         animator.speed = 0f; // 애니메이션을 시작할 때 멈춘 상태로 설정
+        foreach (var collider in colliders)
+        {
+            if (collider != null)
+            {
+                collider.enabled = false;
+            }
+        }
+    }
+
+    public void col_active()
+    {
+        gameObject.GetComponent<MeshCollider>().enabled = true;
     }
 
     void cd_ef_start()
@@ -92,6 +105,13 @@ public class anim_Control : MonoBehaviour
             {
                 meshRenderer.enabled = false;
                 Debug.Log("1111");
+                foreach (var collider in colliders)
+                {
+                    if (collider != null)
+                    {
+                        collider.enabled = false;
+                    }
+                }
             }
         }
         Material[] materials = meshRenderer.materials;

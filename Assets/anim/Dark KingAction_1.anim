@@ -4294,3 +4294,10 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 8.208333
+    functionName: col_active
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: c46c77786cda370499829533a14a56b7, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

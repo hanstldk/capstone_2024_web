@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aniname: 
+  colliders: []
   fadeDuration: 2
 --- !u!1 &26437088
 GameObject:
@@ -973,6 +974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aniname: 
+  colliders: []
   fadeDuration: 2
 --- !u!64 &113522838
 MeshCollider:
@@ -2656,6 +2658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aniname: 
+  colliders: []
   fadeDuration: 2
 --- !u!64 &543984378
 MeshCollider:
@@ -2718,6 +2721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aniname: 
+  colliders: []
   fadeDuration: 2
 --- !u!4 &636268791 stripped
 Transform:
@@ -3061,6 +3065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aniname: 
+  colliders: []
   fadeDuration: 2
 --- !u!95 &704112011
 Animator:
@@ -3785,6 +3790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aniname: 
+  colliders: []
   fadeDuration: 2
 --- !u!1 &868820211
 GameObject:
@@ -3962,6 +3968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aniname: 
+  colliders: []
   fadeDuration: 2
 --- !u!1 &907621696
 GameObject:
@@ -4401,6 +4408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aniname: 
+  colliders: []
   fadeDuration: 2
 --- !u!114 &1046872527
 MonoBehaviour:
@@ -5218,6 +5226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aniname: 
+  colliders: []
   fadeDuration: 2
 --- !u!4 &1230933155 stripped
 Transform:
@@ -5959,6 +5968,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aniname: 
+  colliders:
+  - {fileID: 2100646417}
+  - {fileID: 543984378}
+  - {fileID: 113522838}
+  - {fileID: 1362766828}
   fadeDuration: 2
 --- !u!64 &1362766828
 MeshCollider:
@@ -6912,6 +6926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aniname: 
+  colliders: []
   fadeDuration: 2
 --- !u!1001 &1602705745
 PrefabInstance:
@@ -8809,7 +8824,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.2095, y: -2.4879}
+  m_AnchoredPosition: {x: 0.20947266, y: -2.487915}
   m_SizeDelta: {x: 1961.7649, y: 1126.7708}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1969254028
@@ -9487,6 +9502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aniname: 
+  colliders: []
   fadeDuration: 2
 --- !u!64 &2100646417
 MeshCollider:
